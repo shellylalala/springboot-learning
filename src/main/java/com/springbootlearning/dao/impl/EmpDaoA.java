@@ -3,9 +3,11 @@ package com.springbootlearning.dao.impl;
 import com.springbootlearning.dao.EmpDao;
 import com.springbootlearning.pojo.Emp;
 import com.springbootlearning.utils.XmlParserUtils;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class EmpDaoA implements EmpDao {
     @Override
     public List<Emp> listEmp() {

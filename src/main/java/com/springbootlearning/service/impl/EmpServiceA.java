@@ -4,11 +4,15 @@ import com.springbootlearning.dao.EmpDao;
 import com.springbootlearning.dao.impl.EmpDaoA;
 import com.springbootlearning.pojo.Emp;
 import com.springbootlearning.service.EmpService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+//@Component
 public class EmpServiceA implements EmpService {
-    private EmpDao empDao = new EmpDaoA();
+    //@Autowired
+    private EmpDao empDao;
     @Override
     public List<Emp> listEmp() {
         List<Emp> empList = empDao.listEmp();

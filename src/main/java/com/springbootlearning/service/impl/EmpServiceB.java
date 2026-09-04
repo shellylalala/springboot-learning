@@ -1,41 +1,28 @@
-package com.springbootlearning.controller;
+package com.springbootlearning.service.impl;
 
+import com.springbootlearning.dao.EmpDao;
+import com.springbootlearning.dao.impl.EmpDaoA;
 import com.springbootlearning.pojo.Emp;
 import com.springbootlearning.service.EmpService;
-import com.springbootlearning.service.impl.EmpServiceA;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@RestController
-public class EmpController {
+@Component
+public class EmpServiceB implements EmpService {
     @Autowired
-    private EmpService empService;
-
-    @RequestMapping("/listEmp")
-    public Result list() {
-        List<Emp> empList = empService.listEmp();
-
-        return Result.success(empList);
-    }
-}
-
-
-/*
-// 加载并解析emp.xml文件
-        String file = this.getClass().getClassLoader().getResource("emp.xml").getFile();
-        System.out.println(file);
-
-        List<Emp> empList = XmlParserUtils.parse(file, Emp.class);
+    private EmpDao empDao;
+    @Override
+    public List<Emp> listEmp() {
+        List<Emp> empList = empDao.listEmp();
 
         empList.forEach(emp -> {
             String gender = emp.getGender();
             if ("1".equals(gender)) {
-                emp.setGender("男");
+                emp.setGender("男士");
             } else if ("2".equals(gender)) {
-                emp.setGender("女");
+                emp.setGender("女士");
             } else {
                 emp.setGender("未知");
             }
@@ -52,4 +39,6 @@ public class EmpController {
             }
         });
 
- */
+        return empList;
+    }
+}
