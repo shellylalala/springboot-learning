@@ -3,7 +3,9 @@ package com.springbootlearning.controller;
 import com.springbootlearning.pojo.Emp;
 import com.springbootlearning.service.EmpService;
 import com.springbootlearning.service.impl.EmpServiceA;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,7 +13,11 @@ import java.util.List;
 
 @RestController
 public class EmpController {
-    @Autowired
+    //@Qualifier("empServiceA") // 指定使用EmpServiceA
+    //@Autowired
+    //private EmpService empService;
+
+    @Resource(name = "empServiceB") // 指定使用EmpServiceA
     private EmpService empService;
 
     @RequestMapping("/listEmp")

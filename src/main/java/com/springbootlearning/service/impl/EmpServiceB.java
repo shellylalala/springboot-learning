@@ -5,11 +5,13 @@ import com.springbootlearning.dao.impl.EmpDaoA;
 import com.springbootlearning.pojo.Emp;
 import com.springbootlearning.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+//import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Component
+//@Component
+@Service
 public class EmpServiceB implements EmpService {
     @Autowired
     private EmpDao empDao;

@@ -5,13 +5,16 @@ import com.springbootlearning.dao.impl.EmpDaoA;
 import com.springbootlearning.pojo.Emp;
 import com.springbootlearning.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-//@Component
+//@Primary // 指定优先展示A
+@Component
 public class EmpServiceA implements EmpService {
-    //@Autowired
+    @Autowired
     private EmpDao empDao;
     @Override
     public List<Emp> listEmp() {
